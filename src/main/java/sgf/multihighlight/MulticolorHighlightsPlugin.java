@@ -27,6 +27,7 @@ package sgf.multihighlight;
 import com.google.common.collect.ImmutableList;
 import com.google.inject.Provides;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -122,12 +123,13 @@ public class MulticolorHighlightsPlugin extends Plugin
 	public void onNpcSpawned(NpcSpawned npcSpawned) {
 		final NPC npc = npcSpawned.getNpc();
 		final String npcName = npc.getName();
+		final Integer npcId = npc.getId();
 
 		if (npcName == null) return;
 
 		int group = 1;
 		for (Set<NPC> highlights : groupHighlights) {
-			if (matchesNpcName(npcName, getHighlightNames(group))) {
+			if (matchesNpcName(npcName, getHighlightNames(group)) || matchesNpcId(npcId, getHighlightIds(group))) {
 				highlights.add(npc);
 			}
 			group++;
@@ -162,8 +164,9 @@ public class MulticolorHighlightsPlugin extends Plugin
 
 			for (NPC npc : client.getNpcs()) {
 				final String npcName = npc.getName();
+				final Integer npcId = npc.getId();
 				if (npcName == null) continue;
-				if (matchesNpcName(npcName, getHighlightNames(group))) {
+				if (matchesNpcName(npcName, getHighlightNames(group)) || matchesNpcId(npcId, getHighlightIds(group))) {
 					highlights.add(npc);
 				}
 			}
@@ -174,13 +177,38 @@ public class MulticolorHighlightsPlugin extends Plugin
 	private List<String> getHighlightNames(final int groupNum) {
 		String npcCsv = "";
 		switch (groupNum) {
-			case 1: npcCsv = config.getNpcs1(); break;
-			case 2: npcCsv = config.getNpcs2(); break;
-			case 3: npcCsv = config.getNpcs3(); break;
-			case 4: npcCsv = config.getNpcs4(); break;
-			case 5: npcCsv = config.getNpcs5(); break;
+			case 1: npcCsv = config.getNpcNames1(); break;
+			case 2: npcCsv = config.getNpcNames2(); break;
+			case 3: npcCsv = config.getNpcNames3(); break;
+			case 4: npcCsv = config.getNpcNames4(); break;
+			case 5: npcCsv = config.getNpcNames5(); break;
 		}
 		return Text.fromCSV(npcCsv);
+	}
+
+	private List<Integer> getHighlightIds(final int groupNum) {
+		String npcIdsCsv = "";
+		List<Integer> npcIds = new ArrayList<Integer>();
+		switch (groupNum) {
+			case 1: npcIdsCsv = config.getNpcIds1(); break;
+			case 2: npcIdsCsv = config.getNpcIds2(); break;
+			case 3: npcIdsCsv = config.getNpcIds3(); break;
+			case 4: npcIdsCsv = config.getNpcIds4(); break;
+			case 5: npcIdsCsv = config.getNpcIds5(); break;
+		}
+		if (!npcIdsCsv.equals("")) {
+			for (String id: npcIdsCsv.split(",")) {
+				if (!id.trim().equals(""))  {
+					try  {
+						npcIds.add(Integer.parseInt(id.trim()));
+					} catch (Exception e) {
+						log.info("multicolor-highlights: " + e.getMessage());
+					}
+				}
+			}
+		}
+
+		return npcIds;
 	}
 
 	 protected Color getGroupColor(final int groupNum) {
@@ -216,5 +244,9 @@ public class MulticolorHighlightsPlugin extends Plugin
 			}
 		}
 		return false;
+	}
+
+	private boolean matchesNpcId(Integer id, List<Integer> highlightIds) {
+		return highlightIds.contains(id);
 	}
 }

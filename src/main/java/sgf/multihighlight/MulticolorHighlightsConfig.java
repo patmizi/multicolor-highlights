@@ -121,9 +121,18 @@ public interface MulticolorHighlightsConfig extends Config
 		description = "NPCs to highlight with Color 1",
 		section = group1Section
 	)
-	default String getNpcs1() {
+	default String getNpcNames1() {
 		return "";
 	}
+
+	@ConfigItem(
+		position = 6,
+		keyName = "group1NpcIds",
+		name = "NPC IDs to highlight with Color 1",
+		description = "NPC IDs to highlight with Color 1",
+		section = group1Section
+	)
+	default String getNpcIds1() { return  ""; }
 
 	// Group 2
 	@ConfigSection(
@@ -135,7 +144,7 @@ public interface MulticolorHighlightsConfig extends Config
 
 	@Alpha
 	@ConfigItem(
-		position = 6,
+		position = 7,
 		keyName = "group2Color",
 		name = "Color 2",
 		description = "Color for group 2 highlights",
@@ -149,7 +158,7 @@ public interface MulticolorHighlightsConfig extends Config
 		max = 255
 	)
 	@ConfigItem(
-		position = 7,
+		position = 8,
 		keyName = "group2FillAlpha",
 		name = "Fill Alpha 2",
 		description = "Alpha (transparency) for hull fill highlight color",
@@ -160,15 +169,24 @@ public interface MulticolorHighlightsConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 8,
+		position = 9,
 		keyName = "group2Npcs",
 		name = "NPCs to highlight with Color 2",
 		description = "NPCs to highlight with Color 2",
 		section = group2Section
 	)
-	default String getNpcs2() {
+	default String getNpcNames2() {
 		return "";
 	}
+
+	@ConfigItem(
+		position = 10,
+		keyName = "group2NpcIds",
+		name = "NPC IDs to highlight with Color 2",
+		description = "NPC IDs to highlight with Color 2",
+		section = group2Section
+	)
+	default String getNpcIds2() { return  ""; }
 
 	// Group 3
 	@ConfigSection(
@@ -180,7 +198,7 @@ public interface MulticolorHighlightsConfig extends Config
 
 	@Alpha
 	@ConfigItem(
-		position = 9,
+		position = 11,
 		keyName = "group3Color",
 		name = "Color 3",
 		description = "Color for group 3 highlights",
@@ -194,7 +212,7 @@ public interface MulticolorHighlightsConfig extends Config
 		max = 255
 	)
 	@ConfigItem(
-		position = 10,
+		position = 12,
 		keyName = "group3FillAlpha",
 		name = "Fill Alpha 3",
 		description = "Alpha (transparency) for hull fill highlight color",
@@ -205,15 +223,24 @@ public interface MulticolorHighlightsConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 10,
+		position = 13,
 		keyName = "group3Npcs",
 		name = "NPCs to highlight with Color 3",
 		description = "NPCs to highlight with Color 3",
 		section = group3Section
 	)
-	default String getNpcs3() {
+	default String getNpcNames3() {
 		return "";
 	}
+
+	@ConfigItem(
+		position = 14,
+		keyName = "group3NpcIds",
+		name = "NPC IDs to highlight with Color 3",
+		description = "NPC IDs to highlight with Color 3",
+		section = group3Section
+	)
+	default String getNpcIds3() { return  ""; }
 
 	// Group 4
 	@ConfigSection(
@@ -225,7 +252,7 @@ public interface MulticolorHighlightsConfig extends Config
 
 	@Alpha
 	@ConfigItem(
-		position = 12,
+		position = 15,
 		keyName = "group4Color",
 		name = "Color 4",
 		description = "Color for group 4 highlights",
@@ -239,7 +266,7 @@ public interface MulticolorHighlightsConfig extends Config
 		max = 255
 	)
 	@ConfigItem(
-		position = 13,
+		position = 16,
 		keyName = "group4FillAlpha",
 		name = "Fill Alpha 4",
 		description = "Alpha (transparency) for hull fill highlight color",
@@ -250,15 +277,24 @@ public interface MulticolorHighlightsConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 14,
+		position = 17,
 		keyName = "group4Npcs",
 		name = "NPCs to highlight with Color 4",
 		description = "NPCs to highlight with Color 4",
 		section = group4Section
 	)
-	default String getNpcs4() {
+	default String getNpcNames4() {
 		return "";
 	}
+
+	@ConfigItem(
+		position = 18,
+		keyName = "group4NpcIds",
+		name = "NPC IDs to highlight with Color 4",
+		description = "NPC IDs to highlight with Color 4",
+		section = group4Section
+	)
+	default String getNpcIds4() { return  ""; }
 
 	// Group 5
 	@ConfigSection(
@@ -270,7 +306,7 @@ public interface MulticolorHighlightsConfig extends Config
 
 	@Alpha
 	@ConfigItem(
-		position = 15,
+		position = 19,
 		keyName = "group5Color",
 		name = "Color 5",
 		description = "Color for group 5 highlights",
@@ -284,7 +320,7 @@ public interface MulticolorHighlightsConfig extends Config
 		max = 255
 	)
 	@ConfigItem(
-		position = 16,
+		position = 20,
 		keyName = "group5FillAlpha",
 		name = "Fill Alpha 5",
 		description = "Alpha (transparency) for hull fill highlight color",
@@ -295,13 +331,22 @@ public interface MulticolorHighlightsConfig extends Config
 	}
 
 	@ConfigItem(
-		position = 17,
+		position = 21,
 		keyName = "group5Npcs",
 		name = "NPCs to highlight with Color 5",
 		description = "NPCs to highlight with Color 5",
 		section = group5Section
 	)
-	default String getNpcs5() {
+	default String getNpcNames5() {
 		return "";
 	}
+
+	@ConfigItem(
+		position = 22,
+		keyName = "group5NpcIds",
+		name = "NPC IDs to highlight with Color 5",
+		description = "NPC IDs to highlight with Color 5",
+		section = group5Section
+	)
+	default String getNpcIds5() { return  ""; }
 }
