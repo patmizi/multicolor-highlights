@@ -1,2 +1,0 @@
-sgf/multihighlight/MulticolorHighlightsPluginTest.java
- sgf.multihighlight.MulticolorHighlightsPluginTest
