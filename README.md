@@ -10,8 +10,3 @@ Currently, this plugin is NOT meant as a replacement for runelite's npc indicato
 
 - 5 customizable color groups
 - toggleable hull outline and hull fill highlighting styles
-
-
-# ⚠️ NOTICE ⚠️
-
-This plugin is abandoned. If you are interested in changes you can fork it and submit it to be replaced on the plugin hub.

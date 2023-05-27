@@ -1,0 +1,6 @@
+sgf/multihighlight/MulticolorHighlightsPlugin.java
+ sgf.multihighlight.MulticolorHighlightsPlugin
+sgf/multihighlight/MulticolorHighlightsOverlay.java
+ sgf.multihighlight.MulticolorHighlightsOverlay
+sgf/multihighlight/MulticolorHighlightsConfig.java
+ sgf.multihighlight.MulticolorHighlightsConfig
